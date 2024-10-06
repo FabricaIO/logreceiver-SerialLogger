@@ -11,7 +11,7 @@ class SerialLogger : public LogReceiver {
 	public:
 		SerialLogger(HardwareSerial* HWSerial = &Serial, int Baud = 115200);
 		bool begin();
-		bool receiveChar(char c);
+		bool receiveMessage(char message);
 		bool receiveMessage(String message);
 	private:
 		/// @brief Pointer to hardware serial to use

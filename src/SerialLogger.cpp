@@ -18,10 +18,10 @@ bool SerialLogger::begin() {
 }
 
 /// @brief Writes a char to the serial output
-/// @param c The char to write
+/// @param message The char to write
 /// @return True on success
-bool SerialLogger::receiveChar(char c) {
-	serial->print(c);
+bool SerialLogger::receiveMessage(char message) {
+	serial->print(message);
 	return true;
 }
 
