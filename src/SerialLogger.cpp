@@ -9,7 +9,7 @@ SerialLogger::SerialLogger(HardwareSerial* HWSerial, int Baud) {
 }
 
 /// @brief Starts the serial logger
-/// @return 
+/// @return True on success
 bool SerialLogger::begin() {
 	Description.name = "Serial Logger";
 	Description.version = "0.8";

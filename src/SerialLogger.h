@@ -13,7 +13,7 @@ class SerialLogger : public LogReceiver {
 		bool begin();
 		bool receiveMessage(char message);
 		bool receiveMessage(String message);
-	private:
+	protected:
 		/// @brief Pointer to hardware serial to use
 		HardwareSerial* serial;
 		int baud;
