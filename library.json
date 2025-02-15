@@ -1,0 +1,51 @@
+{
+	"name": "Fabrica-IO Log Receiver Serial",
+	"version": "0.5.0",
+	"description": "Logs all message to USB serial interface",
+	"keywords": "Fabrica-IO, log receiver, serial",
+	"repository":
+	{
+	  "type": "git",
+	  "url": "https://github.com/FabricaIO/logreceiver-SerialLogger.git"
+	},
+	"authors":
+	[
+	  {
+		"name": "Sam Groveman",
+		"email": "SamGroveman@outlook.com",
+		"url": "https://github.com/FabricaIO"
+	  }
+	],
+	"dependencies": {
+		
+	  },
+	"license": "GPLv3",
+	"homepage": "https://github.com/FabricaIO",
+	"frameworks": "arduino",
+	"platforms": "*",
+	"fabrica-io" : {
+		"name": "SerialLog",
+		"type": 2,
+		"category": "Log",
+		"libname": "SerialLogger",
+		"includes": ["SerialLogger"],
+		"description": "Logs all message to USB serial interface",
+		"constructor":
+		[
+			[
+				{
+					"name": "HWSerial",
+					"type": "HardwareSerial*",
+					"description": "The serial interface to use",
+					"default": "&Serial"
+				},
+				{
+					"name": "Baud",
+					"type": "int",
+					"description": "The baud rate to use",
+					"default": "115200"
+				}
+			]
+		]
+	}
+  }
