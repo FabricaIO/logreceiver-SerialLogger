@@ -1,5 +1,5 @@
 {
-	"name": "Fabrica-IO Log Receiver Serial",
+	"name": "logreceiver-SerialLogger",
 	"version": "0.5.0",
 	"description": "Logs all message to USB serial interface",
 	"keywords": "Fabrica-IO, log receiver, serial",
