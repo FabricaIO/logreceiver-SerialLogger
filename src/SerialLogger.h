@@ -11,6 +11,7 @@ class SerialLogger : public LogReceiver {
 	public:
 		SerialLogger(HardwareSerial* HWSerial, int Baud = 115200);
 		SerialLogger(USBCDC* HWSerial, int Baud = 115200);
+		SerialLogger(HWCDC* HWSerial, int Baud = 115200);
 		bool begin();
 		bool receiveMessage(char message);
 		bool receiveMessage(String message);
@@ -20,9 +21,15 @@ class SerialLogger : public LogReceiver {
 
 		/// @brief Pointer to the USBCDC serial device to use
 		USBCDC* usbcdc;
+
+		/// @brief Pointer to the HWCDC serial device to use
+		HWCDC* hwcdc;
 		
 		/// @brief True if using USBCDC
 		bool use_usb = false;
+
+		/// @brief True if using HWCDC
+		bool use_hwcdc = false;
 
 		/// @brief The baud rate to use
 		int baud;
