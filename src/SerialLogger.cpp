@@ -8,12 +8,26 @@ SerialLogger::SerialLogger(HardwareSerial* HWSerial, int Baud) {
 	baud = Baud;
 }
 
+/// @brief Creates a new serial logger
+/// @param HWSerial Pointer to a hardware serial object to use
+/// @param Baud The baud rate to use
+SerialLogger::SerialLogger(USBCDC* HWSerial, int Baud) {
+	usbcdc = HWSerial;
+	baud = Baud;
+	use_usb = true;
+}
+
+
 /// @brief Starts the serial logger
 /// @return True on success
 bool SerialLogger::begin() {
 	Description.name = "Serial Logger";
 	Description.version = "0.8";
-	serial->begin(baud);
+	if (!use_usb) {
+		serial->begin(baud);
+	} else {
+		usbcdc->begin(baud);
+	}
 	return true;
 }
 
@@ -21,7 +35,11 @@ bool SerialLogger::begin() {
 /// @param message The char to write
 /// @return True on success
 bool SerialLogger::receiveMessage(char message) {
-	serial->print(message);
+	if (!use_usb) {
+		serial->print(message);
+	} else {
+		usbcdc->print(message);
+	}
 	return true;
 }
 
@@ -29,6 +47,10 @@ bool SerialLogger::receiveMessage(char message) {
 /// @param message The string to write
 /// @return True on success
 bool SerialLogger::receiveMessage(String message) {
-	serial->print(message);
+	if (!use_usb) {
+		serial->print(message);
+	} else {
+		usbcdc->print(message);
+	}
 	return true;
 }
