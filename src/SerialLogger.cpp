@@ -20,7 +20,7 @@ bool SerialLogger::begin() {
 /// @brief Writes a char to the serial output
 /// @param message The char to write
 /// @return True on success
-bool SerialLogger::receiveMessage(char message) {
+bool SerialLogger::receiveMessage(const char& message) {
 	serial->print(message);
 	return true;
 }
@@ -28,7 +28,7 @@ bool SerialLogger::receiveMessage(char message) {
 /// @brief Write a string to the serial output
 /// @param message The string to write
 /// @return True on success
-bool SerialLogger::receiveMessage(String message) {
+bool SerialLogger::receiveMessage(const String& message) {
 	serial->print(message);
 	return true;
 }
